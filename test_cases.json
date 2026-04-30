@@ -1,0 +1,20 @@
+{
+  "semantic_tests": [
+    {
+      "query": "How much did I pay for rent last month?",
+      "expected": "HOUSING"
+    },
+    {
+      "query": "I bought some bread at Coles",
+      "expected": "GROCERIES"
+    },
+    {
+      "query": "Opal card top up fee",
+      "expected": "TRANSPORT"
+    },
+    {
+      "query": "Dinner with friends at a cafe",
+      "expected": "DINING"
+    }
+  ]
+}

@@ -1,0 +1,14 @@
+.venv/
+venv/
+__pycache__/
+*.pyc
+.DS_Store
+chroma_db/
+*.joblib
+*.pth
+*.db
+budget_model.pth
+label_encoder.joblib
+
+venv/
+.venv/

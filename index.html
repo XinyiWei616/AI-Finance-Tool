@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sydney CS Budget AI</title>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <style>
+        :root { --primary: #003566; --accent: #ffc300; }
+        body { font-family: 'Segoe UI', sans-serif; background: #f4f7f6; margin: 20px; }
+        .container { max-width: 1000px; margin: auto; display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+        .card { background: white; padding: 20px; border-radius: 12px; box-shadow: 0 4px 6px rgba(0,0,0,0.1); }
+        .full-width { grid-column: span 2; }
+        h2 { color: var(--primary); margin-top: 0; }
+        
+        /* 表单与按钮 */
+        input, button { width: 100%; padding: 10px; margin: 5px 0; border-radius: 6px; border: 1px solid #ddd; }
+        button { background: var(--primary); color: white; cursor: pointer; border: none; font-weight: bold; }
+        button:hover { opacity: 0.9; }
+        .ai-btn { background: #2a9d8f; }
+
+        /* 表格样式 */
+        table { width: 100%; border-collapse: collapse; margin-top: 15px; }
+        th, td { text-align: left; padding: 12px; border-bottom: 1px solid #eee; }
+        .ai-row { background-color: #f0faff; }
+        .tag { font-size: 0.8em; padding: 2px 6px; border-radius: 4px; }
+        .tag-ai { background: #e0f2f1; color: #00796b; }
+        .tag-manual { background: #fff3e0; color: #ef6c00; }
+
+        /* 搜索框 */
+        #search-box { border: 2px solid var(--accent); }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <div class="card">
+        <h2>Add Expense</h2>
+        <form id="expense-form">
+            <input type="number" id="amount" placeholder="Amount ($)" required step="0.01">
+            <input type="text" id="category" placeholder="Category (e.g. Food)" required>
+            <input type="date" id="date" required>
+            <input type="text" id="description" placeholder="Description">
+            <button type="submit">Save Manually</button>
+        </form>
+        <hr>
+        <h3>AI Batch Import</h3>
+        <input type="file" id="csv-file" accept=".csv">
+        <button id="upload-btn" class="ai-btn">Upload & Auto-Categorize</button>
+    </div>
+
+    <div class="card">
+        <h2>Spending Analysis</h2>
+        <canvas id="expenseChart"></canvas>
+    </div>
+
+    <div class="card full-width">
+        <h2>Semantic Search 🔍</h2>
+        <input type="text" id="search-query" placeholder="Ask AI: 'Where did I spend most in Sydney?' or 'Grocery bills'">
+        <button id="search-btn">Smart Search</button>
+        <div id="search-results"></div>
+    </div>
+
+    <div class="card full-width">
+        <h2>Transaction History</h2>
+        <table>
+            <thead>
+                <tr>
+                    <th>Date</th>
+                    <th>Description</th>
+                    <th>Amount</th>
+                    <th>Category</th>
+                    <th>Source</th>
+                </tr>
+            </thead>
+            <tbody id="table-body"></tbody>
+        </table>
+    </div>
+</div>
+
+<script src="app.js"></script>
+</body>
+</html>

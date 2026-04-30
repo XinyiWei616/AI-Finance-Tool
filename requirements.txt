@@ -1,0 +1,9 @@
+fastapi
+uvicorn
+torch
+torchvision
+sentence-transformers
+chromadb
+pandas
+scikit-learn
+joblib
