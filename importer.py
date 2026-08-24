@@ -207,7 +207,7 @@ def train_model_pipeline(X_train, y_train, store, le, df, natural_language_seeds
        
 if __name__ == "__main__":
     if __name__ == "__main__":
-    # 1. 定义你的种子数据 (放在这里方便随时修改)
+    # 1. 定义种子数据 
         natural_language_seeds = {
             'HOUSING': ['Monthly rent payment', 'Room rent', 'Apartment rental'],
             'GROCERIES': ['Supermarket shopping', 'Weekly groceries', 'Food buy'],
